@@ -1930,7 +1930,10 @@ QFileInfoList DkImageLoader::getFilteredFileInfoList(const QString &dirPath, QSt
 
     // append files with no suffix
     QDir cDir(dirPath);
-    QStringList allFiles = cDir.entryList();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QStringList allFiles = cDir.entryList(QStringList() << "*.png" << "*.jpg" << "*.bmp" << "*.gif" << "*.ico" << "*.cur" << "*.svg",
+                                          QDir::Files | QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::Readable);
+    QApplication::restoreOverrideCursor();
     QStringList noSuffixFiles;
 
     for (const QString &name : allFiles) {
