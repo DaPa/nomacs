@@ -404,7 +404,7 @@ protected:
     bool loadTgaFile(const QString &filePath, QImage &img, QSharedPointer<QByteArray> ba = QSharedPointer<QByteArray>()) const;
     bool loadRawFile(const QString &filePath, QImage &img, QSharedPointer<QByteArray> ba = QSharedPointer<QByteArray>(), bool fast = false) const;
     void indexPages(const QString &filePath, const QSharedPointer<QByteArray> ba = QSharedPointer<QByteArray>());
-    void convert32BitOrder(void *buffer, int width) const;
+    void convert32BitOrder(void *buffer, uint32_t width) const;
 
     int mLoader;
     bool mTraining;
